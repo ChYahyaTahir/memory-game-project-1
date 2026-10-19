@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="bg-circle circle-1"></div>
+  <div class="bg-circle circle-2"></div>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">🃏 Memory<span>Match</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="easy.html" class="easy">Easy</a></li>
+      <li><span class="nav-disabled" title="Coming soon">Medium 🔒</span></li>
+      <li><span class="nav-disabled" title="Coming soon">Hard 🔒</span></li>
+      <li><a href="login.html" class="login-link">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero section -->
+  <section class="hero container">
+    <div class="hero-text">
+      <span class="tag">🧠 Brain training game</span>
+      <h1>Flip, remember &amp; <span class="highlight">match them all!</span></h1>
+      <p>
+        Memory Match is a fun card game that helps you improve your memory.
+        Flip the cards, remember what you saw, and find all the matching pairs.
+      </p>
+      <div class="hero-buttons">
+        <a href="easy.html" class="btn btn-primary">Start Playing →</a>
+        <a href="#levels" class="btn btn-outline">Choose a Level</a>
+      </div>
+    </div>
+
+    <!-- Three sample cards (hover over them to try) -->
+    <div class="hero-cards">
+      <label class="card">
+        <input type="checkbox">
+        <span class="card-inner">
+          <span class="card-back">?</span>
+          <span class="card-front">🍓</span>
+        </span>
+      </label>
+      <label class="card">
+        <input type="checkbox">
+        <span class="card-inner">
+          <span class="card-back">?</span>
+          <span class="card-front">🌻</span>
+        </span>
+      </label>
+      <label class="card">
+        <input type="checkbox">
+        <span class="card-inner">
+          <span class="card-back">?</span>
+          <span class="card-front">🍓</span>
+        </span>
+      </label>
+    </div>
+  </section>
+
+  <!-- Difficulty levels -->
+  <section class="section container" id="levels">
+    <div class="section-title">
+      <span class="tag">Choose your challenge</span>
+      <h2>Three Levels of Fun</h2>
+      <p>Start with the Easy level. Medium and Hard are coming soon!</p>
+    </div>
+
+    <div class="levels">
+      <a href="easy.html" class="level-box easy">
+        <div class="level-icon">🌱</div>
+        <h3>Easy</h3>
+        <p class="level-size">2 × 2 grid · 2 pairs</p>
+        <p>A quick warm-up with only four cards. Perfect for beginners.</p>
+        <span class="play-link">Play Easy →</span>
+      </a>
+
+      <!-- Medium and Hard are not ready yet, so they are not links -->
+      <div class="level-box medium locked">
+        <div class="level-icon">🔥</div>
+        <h3>Medium</h3>
+        <p class="level-size">4 × 4 grid · 8 pairs</p>
+        <p>Sixteen cards with fruits, flowers and animals. A real challenge!</p>
+        <span class="coming-soon">🔒 Coming Soon</span>
+      </div>
+
+      <div class="level-box hard locked">
+        <div class="level-icon">🏆</div>
+        <h3>Hard</h3>
+        <p class="level-size">8 × 8 grid · 32 pairs</p>
+        <p>Sixty-four cards for memory masters. How good is your memory?</p>
+        <span class="coming-soon">🔒 Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to play -->
+  <section class="section container">
+    <div class="section-title">
+      <span class="tag">How it works</span>
+      <h2>Easy to Learn, Fun to Master</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Flip a Card</h3>
+        <p>Hover over a card or tap it to turn it over and see the symbol.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Remember It</h3>
+        <p>Try to remember where each fruit, flower or animal is hiding.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Match the Pairs</h3>
+        <p>Find the two cards with the same symbol until the board is clear.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to action -->
+  <section class="container">
+    <div class="cta">
+      <div>
+        <h2>Ready to train your brain?</h2>
+        <p>Start with the Easy level and flip your first card now.</p>
+      </div>
+      <a href="easy.html" class="btn btn-white">Start with Easy →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Memory Match · Made with HTML &amp; CSS</p>
+  </footer>
+
+</body>
+</html>

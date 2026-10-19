@@ -1,0 +1,708 @@
+/* =========================================
+   Memory Match - Main Stylesheet
+   Used by: index.html, easy.html, login.html
+   ========================================= */
+
+/* ---------- Color variables ---------- */
+:root {
+  --purple: #6c5ce7;
+  --dark-purple: #4a3bc2;
+  --pink: #ff7eb6;
+  --text: #2a2250;
+  --light-text: #5f5a86;
+  --white: #ffffff;
+}
+
+/* ---------- Basic reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(135deg, #f1ebff, #ffeef6, #e6faf4);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Keeps page content centered with a max width */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* =========================================
+   Floating background circles
+   ========================================= */
+.bg-circle {
+  position: fixed;
+  border-radius: 50%;
+  opacity: 0.4;
+  z-index: -1;
+  animation: float 8s ease-in-out infinite;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  background-color: #c9bcff;
+  top: -80px;
+  left: -80px;
+}
+
+.circle-2 {
+  width: 250px;
+  height: 250px;
+  background-color: #ffc2dc;
+  bottom: -60px;
+  right: -60px;
+  animation-delay: 2s;
+}
+
+
+/* =========================================
+   Navigation bar
+   ========================================= */
+.navbar {
+  max-width: 1100px;
+  margin: 15px auto;
+  padding: 12px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.logo span {
+  color: var(--purple);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+}
+
+.nav-links a {
+  display: block;
+  padding: 8px 18px;
+  border-radius: 25px;
+  color: var(--light-text);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #ece8ff;
+  color: var(--purple);
+}
+
+/* The page you are currently on */
+.nav-links a.active {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+/* Easy level gets a green highlight */
+.nav-links a.active.easy {
+  background-color: #2ec4a5;
+}
+
+/* Medium and Hard are not ready yet */
+.nav-disabled {
+  display: block;
+  padding: 8px 18px;
+  color: #b8b3d6;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.nav-links a.login-link {
+  border: 2px solid var(--purple);
+  color: var(--purple);
+}
+
+.nav-links a.login-link:hover,
+.nav-links a.login-link.active {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+
+/* =========================================
+   Buttons
+   ========================================= */
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: var(--white);
+  box-shadow: 0 6px 15px rgba(108, 92, 231, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(108, 92, 231, 0.4);
+}
+
+.btn-outline {
+  background-color: var(--white);
+  color: var(--purple);
+  border: 2px solid var(--purple);
+}
+
+.btn-outline:hover {
+  background-color: var(--purple);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.btn-white {
+  background-color: var(--white);
+  color: var(--purple);
+}
+
+.btn-white:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   Shared text styles
+   ========================================= */
+.tag {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background-color: var(--white);
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  color: var(--purple);
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.section-title p {
+  color: var(--light-text);
+}
+
+
+/* =========================================
+   Home page - Hero section
+   ========================================= */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 50px 20px;
+  animation: fadeIn 1s ease;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 54px;
+  line-height: 1.15;
+  margin: 15px 0;
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: var(--light-text);
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+/* Three real cards you can try on the home page */
+.hero-cards {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-cards .card {
+  width: 130px;
+  height: 170px;
+}
+
+/* Middle card sits a little higher */
+.hero-cards .card:nth-child(2) {
+  margin-top: -40px;
+}
+
+
+/* =========================================
+   Home page - Level boxes
+   ========================================= */
+.levels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.level-box {
+  display: block;
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 20px;
+  border-top: 6px solid;
+  color: var(--text);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.level-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.level-box.easy   { border-color: #2ec4a5; }
+.level-box.medium { border-color: #f5a623; }
+.level-box.hard   { border-color: #f0606a; }
+
+/* Locked levels look faded and do not move on hover */
+.level-box.locked {
+  opacity: 0.6;
+}
+
+.level-box.locked:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.level-icon {
+  font-size: 40px;
+}
+
+.level-box h3 {
+  font-size: 26px;
+  margin: 10px 0 5px;
+}
+
+.level-size {
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.level-box p {
+  color: var(--light-text);
+  margin-bottom: 15px;
+}
+
+.play-link {
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.coming-soon {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 15px;
+  background-color: #eeeaf8;
+  color: var(--light-text);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   Home page - How it works
+   ========================================= */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.step {
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 2px dashed #d6cffa;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.step-number {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: var(--purple);
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.step h3 {
+  margin-bottom: 8px;
+}
+
+.step p {
+  color: var(--light-text);
+}
+
+
+/* =========================================
+   Home page - Call to action box
+   ========================================= */
+.cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 45px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, var(--dark-purple), var(--pink));
+  color: var(--white);
+  box-shadow: 0 15px 35px rgba(108, 92, 231, 0.3);
+}
+
+.cta h2 {
+  font-size: 32px;
+}
+
+
+/* =========================================
+   Memory cards
+   -----------------------------------------
+   Each card is a <label> with a hidden checkbox inside.
+   Clicking the label checks the checkbox, and the
+   :checked selector keeps the card flipped over.
+   ========================================= */
+.card {
+  display: block;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;   /* gives the flip a 3D look */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Hide the checkbox - the label still toggles it */
+.card input {
+  display: none;
+}
+
+/* The part that actually rotates */
+.card-inner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  /* The long delay (99999s) is the trick that keeps the card
+     open after the mouse leaves: it waits a very long time
+     before flipping back. */
+  transition: transform 0.6s ease 99999s;
+}
+
+/* Flip the card on hover OR when the checkbox is checked */
+.card:hover .card-inner,
+.card input:checked + .card-inner {
+  transform: rotateY(180deg);
+  transition: transform 0.6s ease 0s;
+}
+
+/* Both sides sit on top of each other */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  backface-visibility: hidden;   /* hide the side facing away */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Back of the card (what you see first) */
+.card-back {
+  background: linear-gradient(135deg, #8170ff, #4a3bc2);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+/* Front of the card (the symbol) */
+.card-front {
+  background-color: #fffaf0;
+  border: 3px solid #ffe0ec;
+  font-size: 55px;
+  transform: rotateY(180deg);
+}
+
+
+/* =========================================
+   Easy level page
+   ========================================= */
+.game-header {
+  text-align: center;
+  margin: 30px auto;
+  max-width: 650px;
+  animation: fadeIn 1s ease;
+}
+
+.game-header h1 {
+  font-size: 46px;
+  margin: 10px 0;
+}
+
+.game-header p {
+  color: var(--light-text);
+  font-size: 17px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.info-box {
+  background-color: var(--white);
+  padding: 10px 22px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.info-box span {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--light-text);
+  text-transform: uppercase;
+}
+
+.info-box strong {
+  font-size: 22px;
+}
+
+/* The board that holds the cards */
+.board {
+  display: grid;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+}
+
+/* Easy: 2 columns x 2 rows */
+.board-easy {
+  grid-template-columns: repeat(2, 150px);
+  grid-auto-rows: 150px;
+  gap: 20px;
+}
+
+.game-footer {
+  text-align: center;
+  margin: 30px 0 50px;
+}
+
+.hint {
+  color: var(--light-text);
+  margin-bottom: 20px;
+}
+
+.game-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+
+/* =========================================
+   Login page
+   ========================================= */
+.login-page {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 60px;
+}
+
+.login-box {
+  width: 420px;
+  padding: 40px;
+  background-color: var(--white);
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  animation: slideUp 0.8s ease;
+}
+
+.login-box h1 {
+  font-size: 30px;
+  margin: 15px 0 5px;
+}
+
+.login-box > p {
+  color: var(--light-text);
+  margin-bottom: 25px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 13px 15px;
+  border: 2px solid #e6e2f7;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.15);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.form-options a,
+.signup-text a {
+  color: var(--purple);
+  font-weight: 700;
+}
+
+.form-options a:hover,
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+.login-box .btn {
+  width: 100%;
+}
+
+.signup-text {
+  margin-top: 20px;
+  color: var(--light-text);
+}
+
+
+/* =========================================
+   Footer
+   ========================================= */
+footer {
+  text-align: center;
+  padding: 25px;
+  color: var(--light-text);
+  font-size: 14px;
+}
+
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}

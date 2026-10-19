@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match - Easy Level</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="bg-circle circle-1"></div>
+  <div class="bg-circle circle-2"></div>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">🃏 Memory<span>Match</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="easy.html" class="easy active">Easy</a></li>
+      <li><span class="nav-disabled" title="Coming soon">Medium 🔒</span></li>
+      <li><span class="nav-disabled" title="Coming soon">Hard 🔒</span></li>
+      <li><a href="login.html" class="login-link">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page heading -->
+  <section class="game-header container">
+    <span class="tag">Level 1 · Easy</span>
+    <h1>Test Your <span class="highlight">Memory!</span></h1>
+    <p>Only four cards to start with! Hover over a card or tap it to flip it, then find the two matching pairs.</p>
+
+    <div class="game-info">
+      <div class="info-box"><span>Grid</span><strong>2 × 2</strong></div>
+      <div class="info-box"><span>Cards</span><strong>4</strong></div>
+      <div class="info-box"><span>Pairs</span><strong>2</strong></div>
+    </div>
+  </section>
+
+  <!-- Card board (2 x 2) -->
+  <section class="board board-easy">
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🌻</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍓</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍓</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🌻</span>
+      </span>
+    </label>
+  </section>
+
+  <div class="game-footer">
+    <p class="hint">✨ Flipped cards stay open. Refresh the page to start again.</p>
+    <div class="game-buttons">
+      <a href="index.html" class="btn btn-outline">Back to Home</a>
+      <a href="easy.html" class="btn btn-primary">Play Again ↻</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Memory Match · Made with HTML &amp; CSS</p>
+  </footer>
+
+</body>
+</html>
