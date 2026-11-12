@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match - Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="bg-circle circle-1"></div>
+  <div class="bg-circle circle-2"></div>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">🃏 Memory<span>Match</span></a>
+    <button class="menu-btn" id="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="easy.html" class="easy">Easy</a></li>
+      <li><a href="medium.html" class="medium">Medium</a></li>
+      <li><a href="hard.html" class="hard">Hard</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="login-link">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page heading -->
+  <header class="page-header container">
+    <span class="tag">Our Services</span>
+    <h1>Everything You Need to <span class="highlight">Train Your Brain</span></h1>
+    <p>Memory Match is more than a game. We help kids, students and teachers make memory practice fun every day.</p>
+  </header>
+
+  <!-- What we offer -->
+  <section class="section container">
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🎯</div>
+        <h3>Difficulty Levels</h3>
+        <p>Start with a small 2 × 2 grid and move up to bigger boards as your memory gets stronger.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Daily Brain Training</h3>
+        <p>Short games that you can play every day to improve focus and memory.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3>Card Themes</h3>
+        <p>Play with fruits, flowers, animals and sports. Every theme has bright, colorful cards.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏫</div>
+        <h3>Classroom Mode</h3>
+        <p>Teachers can use Memory Match in class as a fun warm-up activity for students.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Play on Any Device</h3>
+        <p>The website works on computers, tablets and phones, so you can play anywhere.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">👨‍👩‍👧</div>
+        <h3>Family Friendly</h3>
+        <p>Simple rules, no ads and safe content that is suitable for all ages.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Price plans -->
+  <section class="section container">
+    <div class="section-title">
+      <span class="tag">Plans</span>
+      <h2>Choose Your Plan</h2>
+      <p>Start for free and upgrade whenever you want.</p>
+    </div>
+
+    <!-- JavaScript changes the prices when this switch is clicked -->
+    <div class="billing-toggle">
+      <span>Monthly</span>
+      <button class="switch" id="billing-btn">
+        <span class="switch-knob"></span>
+      </button>
+      <span>Yearly <span class="save-badge">Save 20%</span></span>
+    </div>
+
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <p class="plan-price">$<span class="price" data-monthly="0" data-yearly="0">0</span><span class="period">/ month</span></p>
+        <ul>
+          <li>✓ Easy level</li>
+          <li>✓ 2 card themes</li>
+          <li>✓ Play in your browser</li>
+        </ul>
+        <a href="easy.html" class="btn btn-outline">Play Now</a>
+      </div>
+
+      <div class="plan popular">
+        <span class="popular-badge">Most Popular</span>
+        <h3>Student</h3>
+        <p class="plan-price">$<span class="price" data-monthly="3" data-yearly="29">3</span><span class="period">/ month</span></p>
+        <ul>
+          <li>✓ All difficulty levels</li>
+          <li>✓ All card themes</li>
+          <li>✓ Progress tracking</li>
+        </ul>
+        <a href="login.html" class="btn btn-white">Get Started</a>
+      </div>
+
+      <div class="plan">
+        <h3>Classroom</h3>
+        <p class="plan-price">$<span class="price" data-monthly="9" data-yearly="86">9</span><span class="period">/ month</span></p>
+        <ul>
+          <li>✓ Up to 40 students</li>
+          <li>✓ Teacher dashboard</li>
+          <li>✓ Custom card sets</li>
+        </ul>
+        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frequently asked questions -->
+  <section class="section container">
+    <div class="section-title">
+      <span class="tag">FAQ</span>
+      <h2>Frequently Asked Questions</h2>
+      <p>Click on a question to see the answer.</p>
+    </div>
+
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-question">Is Memory Match free to play? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <p>Yes! The Easy level and two card themes are completely free. Paid plans unlock more levels and themes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do I need to create an account? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <p>No, you can play the Easy level without an account. An account is only needed for the Student and Classroom plans.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Can I play on my phone? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <p>Yes. The website changes its layout for smaller screens, so it works on phones and tablets too.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">How many levels are there? <span class="faq-icon">+</span></button>
+        <div class="faq-answer">
+          <p>There are three levels: Easy (2 × 2), Medium (4 × 4) and Hard (8 × 8). Each level has more cards to remember.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Memory Match · Made with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/services.js"></script>
+</body>
+</html>

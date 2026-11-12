@@ -16,11 +16,15 @@
   <!-- Navigation bar -->
   <nav class="navbar">
     <a href="index.html" class="logo">🃏 Memory<span>Match</span></a>
+    <button class="menu-btn" id="menu-btn">☰</button>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="easy.html" class="easy active">Easy</a></li>
-      <li><span class="nav-disabled" title="Coming soon">Medium 🔒</span></li>
-      <li><span class="nav-disabled" title="Coming soon">Hard 🔒</span></li>
+      <li><a href="medium.html" class="medium">Medium</a></li>
+      <li><a href="hard.html" class="hard">Hard</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="login.html" class="login-link">Login</a></li>
     </ul>
   </nav>
@@ -29,58 +33,68 @@
   <section class="game-header container">
     <span class="tag">Level 1 · Easy</span>
     <h1>Test Your <span class="highlight">Memory!</span></h1>
-    <p>Only four cards to start with! Hover over a card or tap it to flip it, then find the two matching pairs.</p>
+    <p>Click on two cards. If they are the same, they stay open. If not, they flip back. Find both pairs to win!</p>
 
+    <!-- JavaScript updates the Moves and Pairs Found numbers -->
     <div class="game-info">
       <div class="info-box"><span>Grid</span><strong>2 × 2</strong></div>
-      <div class="info-box"><span>Cards</span><strong>4</strong></div>
-      <div class="info-box"><span>Pairs</span><strong>2</strong></div>
+      <div class="info-box"><span>Moves</span><strong id="moves">0</strong></div>
+      <div class="info-box"><span>Pairs Found</span><strong><span id="pairs-found">0</span> / 2</strong></div>
     </div>
   </section>
 
-  <!-- Card board (2 x 2) -->
-  <section class="board board-easy">
-    <label class="card">
-      <input type="checkbox">
+  <!-- Card board (2 x 2) - the game is controlled by js/easy.js -->
+  <section class="board board-easy game-board" id="game-board">
+    <div class="card">
       <span class="card-inner">
         <span class="card-back">?</span>
         <span class="card-front">🌻</span>
       </span>
-    </label>
-    <label class="card">
-      <input type="checkbox">
+    </div>
+    <div class="card">
       <span class="card-inner">
         <span class="card-back">?</span>
         <span class="card-front">🍓</span>
       </span>
-    </label>
-    <label class="card">
-      <input type="checkbox">
+    </div>
+    <div class="card">
       <span class="card-inner">
         <span class="card-back">?</span>
         <span class="card-front">🍓</span>
       </span>
-    </label>
-    <label class="card">
-      <input type="checkbox">
+    </div>
+    <div class="card">
       <span class="card-inner">
         <span class="card-back">?</span>
         <span class="card-front">🌻</span>
       </span>
-    </label>
+    </div>
   </section>
 
+  <!-- Hidden until the player finds all pairs -->
+  <div class="win-message" id="win-message">
+    <div class="win-emoji">🎉</div>
+    <h2>You Win!</h2>
+    <p>You found all the pairs in <strong id="final-moves">0</strong> moves.</p>
+    <div class="game-buttons">
+      <a href="easy.html" class="btn btn-outline">Play Again ↻</a>
+      <a href="medium.html" class="btn btn-primary">Next: Medium →</a>
+    </div>
+  </div>
+
   <div class="game-footer">
-    <p class="hint">✨ Flipped cards stay open. Refresh the page to start again.</p>
+    <p class="hint">💡 Tip: try to remember where each symbol is before you click the next card.</p>
     <div class="game-buttons">
       <a href="index.html" class="btn btn-outline">Back to Home</a>
-      <a href="easy.html" class="btn btn-primary">Play Again ↻</a>
+      <a href="medium.html" class="btn btn-primary">Next: Medium →</a>
     </div>
   </div>
 
   <footer>
-    <p>© 2026 Memory Match · Made with HTML &amp; CSS</p>
+    <p>© 2026 Memory Match · Made with HTML, CSS &amp; JavaScript</p>
   </footer>
 
+  <script src="js/main.js"></script>
+  <script src="js/easy.js"></script>
 </body>
 </html>

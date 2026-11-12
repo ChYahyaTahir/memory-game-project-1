@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="bg-circle circle-1"></div>
+  <div class="bg-circle circle-2"></div>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">🃏 Memory<span>Match</span></a>
+    <button class="menu-btn" id="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="easy.html" class="easy">Easy</a></li>
+      <li><a href="medium.html" class="medium">Medium</a></li>
+      <li><a href="hard.html" class="hard">Hard</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="login-link">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page heading -->
+  <header class="page-header container">
+    <span class="tag">Portfolio</span>
+    <h1>Our <span class="highlight">Card Themes</span></h1>
+    <p>Every theme is designed with bright colors and easy-to-recognize symbols. Use the buttons to filter the themes.</p>
+  </header>
+
+  <!-- Theme gallery -->
+  <section class="section container">
+
+    <!-- JavaScript reads data-filter to know which items to show -->
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="food">Food</button>
+      <button class="filter-btn" data-filter="nature">Nature</button>
+      <button class="filter-btn" data-filter="animals">Animals</button>
+      <button class="filter-btn" data-filter="sports">Sports</button>
+    </div>
+
+    <p class="result-text" id="result-text">Showing 8 themes</p>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-item" data-category="food">
+        <div class="preview preview-food">
+          <span>🍓</span><span>🍌</span><span>🍇</span><span>🍉</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Fruit Salad</h3>
+          <p>Juicy fruits in bright colors. Our most played theme.</p>
+          <span class="category-label">Food</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="food">
+        <div class="preview preview-food">
+          <span>🍩</span><span>🍪</span><span>🧁</span><span>🍭</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Sweet Treats</h3>
+          <p>Donuts, cookies and candy that look good enough to eat.</p>
+          <span class="category-label">Food</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="nature">
+        <div class="preview preview-nature">
+          <span>🌻</span><span>🌷</span><span>🌸</span><span>🌵</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Flower Garden</h3>
+          <p>A calm theme full of flowers and plants.</p>
+          <span class="category-label">Nature</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="nature">
+        <div class="preview preview-nature">
+          <span>☀️</span><span>🌈</span><span>⛄</span><span>⚡</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Weather</h3>
+          <p>Sunny, rainy or snowy, match the weather cards.</p>
+          <span class="category-label">Nature</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="animals">
+        <div class="preview preview-animals">
+          <span>🐶</span><span>🐱</span><span>🐼</span><span>🦊</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Cute Animals</h3>
+          <p>Friendly animal faces that kids love.</p>
+          <span class="category-label">Animals</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="animals">
+        <div class="preview preview-animals">
+          <span>🐙</span><span>🐠</span><span>🐬</span><span>🐳</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Ocean Life</h3>
+          <p>Dive under the sea and find the matching pairs.</p>
+          <span class="category-label">Animals</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="sports">
+        <div class="preview preview-sports">
+          <span>⚽</span><span>🏀</span><span>🎾</span><span>🏈</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Ball Games</h3>
+          <p>Balls from all of the world's favorite sports.</p>
+          <span class="category-label">Sports</span>
+        </div>
+      </div>
+
+      <div class="portfolio-item" data-category="sports">
+        <div class="preview preview-sports">
+          <span>⛷️</span><span>🏒</span><span>⛸️</span><span>🏂</span>
+        </div>
+        <div class="portfolio-info">
+          <h3>Winter Sports</h3>
+          <p>Skiing, skating and snowboarding cards.</p>
+          <span class="category-label">Sports</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers -->
+  <section class="container">
+    <div class="stats">
+      <div>
+        <span class="stat-number">8</span>
+        <span class="stat-label">Card themes</span>
+      </div>
+      <div>
+        <span class="stat-number">32</span>
+        <span class="stat-label">Unique symbols</span>
+      </div>
+      <div>
+        <span class="stat-number">4</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div>
+        <span class="stat-number">3</span>
+        <span class="stat-label">Difficulty levels</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to action -->
+  <section class="section container">
+    <div class="cta">
+      <div>
+        <h2>Have an idea for a new theme?</h2>
+        <p>Send us your idea and we might add it to the game.</p>
+      </div>
+      <a href="contact.html" class="btn btn-white">Contact Us →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Memory Match · Made with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/portfolio.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Match - Medium Level</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Background decoration -->
+  <div class="bg-circle circle-1"></div>
+  <div class="bg-circle circle-2"></div>
+
+  <!-- Navigation bar -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">🃏 Memory<span>Match</span></a>
+    <button class="menu-btn" id="menu-btn">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="easy.html" class="easy">Easy</a></li>
+      <li><a href="medium.html" class="medium active">Medium</a></li>
+      <li><a href="hard.html" class="hard">Hard</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html" class="login-link">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page heading -->
+  <section class="game-header container">
+    <span class="tag">Level 2 · Medium</span>
+    <h1>Test Your <span class="highlight">Memory!</span></h1>
+    <p>Sixteen cards and eight pairs. Hover over a card or tap it to flip it. Can you remember where each one is?</p>
+
+    <div class="game-info">
+      <div class="info-box"><span>Grid</span><strong>4 × 4</strong></div>
+      <div class="info-box"><span>Cards</span><strong>16</strong></div>
+      <div class="info-box"><span>Pairs</span><strong>8</strong></div>
+    </div>
+  </section>
+
+  <!-- Card board (4 x 4) -->
+  <section class="board board-medium">
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🐼</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">⭐</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🦊</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🌻</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍇</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🐼</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">⚽</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍇</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">⚽</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍓</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🌻</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍓</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🦊</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">⭐</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍎</span>
+      </span>
+    </label>
+    <label class="card">
+      <input type="checkbox">
+      <span class="card-inner">
+        <span class="card-back">?</span>
+        <span class="card-front">🍎</span>
+      </span>
+    </label>
+  </section>
+
+  <div class="game-footer">
+    <p class="hint">✨ Flipped cards stay open. Refresh the page to start again.</p>
+    <div class="game-buttons">
+      <a href="easy.html" class="btn btn-outline">← Previous: Easy</a>
+      <a href="hard.html" class="btn btn-primary">Next: Hard →</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 Memory Match · Made with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
