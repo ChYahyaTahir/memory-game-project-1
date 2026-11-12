@@ -1,6 +1,7 @@
 /* =========================================
    Memory Match - Main Stylesheet
-   Used by: index.html, easy.html, login.html
+   Used by all pages:
+   index, easy, login, services, portfolio, contact
    ========================================= */
 
 /* ---------- Color variables ---------- */
@@ -8,6 +9,8 @@
   --purple: #6c5ce7;
   --dark-purple: #4a3bc2;
   --pink: #ff7eb6;
+  --green: #2ec4a5;
+  --red: #e0525c;
   --text: #2a2250;
   --light-text: #5f5a86;
   --white: #ffffff;
@@ -97,13 +100,13 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   list-style: none;
 }
 
 .nav-links a {
   display: block;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 25px;
   color: var(--light-text);
   font-weight: 600;
@@ -121,18 +124,17 @@ a {
   color: var(--white);
 }
 
-/* Easy level gets a green highlight */
+/* Each level gets its own highlight color */
 .nav-links a.active.easy {
-  background-color: #2ec4a5;
+  background-color: var(--green);
 }
 
-/* Medium and Hard are not ready yet */
-.nav-disabled {
-  display: block;
-  padding: 8px 18px;
-  color: #b8b3d6;
-  font-weight: 600;
-  cursor: not-allowed;
+.nav-links a.active.medium {
+  background-color: #f5a623;
+}
+
+.nav-links a.active.hard {
+  background-color: #f0606a;
 }
 
 .nav-links a.login-link {
@@ -144,6 +146,16 @@ a {
 .nav-links a.login-link.active {
   background-color: var(--purple);
   color: var(--white);
+}
+
+/* Menu button (☰) - only shown on small screens */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--text);
+  cursor: pointer;
 }
 
 
@@ -232,6 +244,24 @@ a {
   color: var(--light-text);
 }
 
+/* Heading at the top of Services, Portfolio and Contact */
+.page-header {
+  max-width: 700px;
+  margin: 40px auto 0;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+.page-header h1 {
+  font-size: 46px;
+  margin: 10px 0;
+}
+
+.page-header p {
+  color: var(--light-text);
+  font-size: 17px;
+}
+
 
 /* =========================================
    Home page - Hero section
@@ -263,6 +293,7 @@ a {
 
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -310,19 +341,9 @@ a {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
-.level-box.easy   { border-color: #2ec4a5; }
+.level-box.easy   { border-color: var(--green); }
 .level-box.medium { border-color: #f5a623; }
 .level-box.hard   { border-color: #f0606a; }
-
-/* Locked levels look faded and do not move on hover */
-.level-box.locked {
-  opacity: 0.6;
-}
-
-.level-box.locked:hover {
-  transform: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-}
 
 .level-icon {
   font-size: 40px;
@@ -347,17 +368,6 @@ a {
   font-weight: 700;
   color: var(--purple);
 }
-
-.coming-soon {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 15px;
-  background-color: #eeeaf8;
-  color: var(--light-text);
-  font-size: 14px;
-  font-weight: 700;
-}
-
 
 /* =========================================
    Home page - How it works
@@ -399,7 +409,7 @@ a {
 
 
 /* =========================================
-   Home page - Call to action box
+   Call to action box (Home and Portfolio)
    ========================================= */
 .cta {
   display: flex;
@@ -560,6 +570,98 @@ a {
   gap: 20px;
 }
 
+/* ---------- Easy level game (controlled by js/easy.js) ---------- */
+
+/* Hover must NOT flip cards here, or the player could see every card */
+.game-board .card:hover .card-inner {
+  transform: none;
+}
+
+/* No long delay here - wrong cards should flip back */
+.game-board .card-inner {
+  transition: transform 0.6s ease;
+}
+
+/* JavaScript adds the "flipped" class when a card is clicked */
+.game-board .card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Matched cards turn green and do a small pop */
+.game-board .card.matched {
+  cursor: default;
+  animation: pop 0.4s ease;
+}
+
+.game-board .card.matched .card-front {
+  border-color: var(--green);
+  background-color: #e6faf4;
+}
+
+/* "You Win!" box - hidden until JavaScript adds the "show" class */
+.win-message {
+  display: none;
+  max-width: 500px;
+  margin: 30px auto 0;
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.win-message.show {
+  display: block;
+  animation: slideUp 0.6s ease;
+}
+
+.win-emoji {
+  font-size: 50px;
+}
+
+.win-message h2 {
+  font-size: 32px;
+  color: var(--purple);
+}
+
+.win-message p {
+  margin-bottom: 20px;
+  color: var(--light-text);
+}
+
+/* Medium: 4 columns x 4 rows */
+.board-medium {
+  grid-template-columns: repeat(4, 110px);
+  grid-auto-rows: 110px;
+  gap: 15px;
+}
+
+.board-medium .card-front {
+  font-size: 45px;
+}
+
+/* Hard: 8 columns x 8 rows - smaller cards */
+.board-hard {
+  grid-template-columns: repeat(8, 65px);
+  grid-auto-rows: 65px;
+  gap: 8px;
+  padding: 15px;
+}
+
+.board-hard .card-front,
+.board-hard .card-back {
+  border-radius: 8px;
+  border-width: 2px;
+}
+
+.board-hard .card-front {
+  font-size: 32px;
+}
+
+.board-hard .card-back {
+  font-size: 22px;
+}
+
 .game-footer {
   text-align: center;
   margin: 30px 0 50px;
@@ -573,6 +675,7 @@ a {
 .game-buttons {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -587,7 +690,8 @@ a {
 }
 
 .login-box {
-  width: 420px;
+  width: 100%;
+  max-width: 420px;
   padding: 40px;
   background-color: var(--white);
   border-radius: 25px;
@@ -606,6 +710,19 @@ a {
   margin-bottom: 25px;
 }
 
+.login-box .btn {
+  width: 100%;
+}
+
+.signup-text {
+  margin-top: 20px;
+  color: var(--light-text);
+}
+
+
+/* =========================================
+   Form fields (Login and Contact)
+   ========================================= */
 .form-group {
   text-align: left;
   margin-bottom: 18px;
@@ -617,17 +734,28 @@ a {
   margin-bottom: 6px;
 }
 
-.form-group input {
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 13px 15px;
   border: 2px solid #e6e2f7;
   border-radius: 12px;
   font-size: 15px;
   font-family: inherit;
+  color: var(--text);
+  background-color: var(--white);
   transition: all 0.3s ease;
 }
 
-.form-group input:focus {
+.form-group textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
   outline: none;
   border-color: var(--purple);
   box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.15);
@@ -652,13 +780,484 @@ a {
   text-decoration: underline;
 }
 
-.login-box .btn {
-  width: 100%;
+
+/* =========================================
+   Services page
+   ========================================= */
+
+/* Service cards - CSS Grid with 3 columns */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
 }
 
-.signup-text {
-  margin-top: 20px;
+.service-card {
+  padding: 30px;
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  border-radius: 16px;
+  background-color: #f1ebff;
+  font-size: 30px;
+  transition: transform 0.4s ease;
+}
+
+/* The icon tilts when you hover over the card */
+.service-card:hover .service-icon {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.service-card h3 {
+  margin-bottom: 8px;
+}
+
+.service-card p {
   color: var(--light-text);
+}
+
+/* Monthly / Yearly switch */
+.billing-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  font-weight: 600;
+}
+
+.switch {
+  position: relative;
+  width: 56px;
+  height: 30px;
+  border: none;
+  border-radius: 30px;
+  background-color: #d6cffa;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* The white circle inside the switch */
+.switch-knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: var(--white);
+  transition: transform 0.3s ease;
+}
+
+/* JavaScript adds the "on" class when Yearly is selected */
+.switch.on {
+  background-color: var(--purple);
+}
+
+.switch.on .switch-knob {
+  transform: translateX(26px);
+}
+
+.save-badge {
+  padding: 2px 10px;
+  border-radius: 10px;
+  background-color: #d9f7ef;
+  color: #179c82;
+  font-size: 12px;
+}
+
+/* Price plans */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  align-items: center;
+}
+
+.plan {
+  padding: 35px 30px;
+  background-color: var(--white);
+  border-radius: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.plan:hover {
+  transform: translateY(-6px);
+}
+
+/* The middle plan is bigger and colored */
+.plan.popular {
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: var(--white);
+  transform: scale(1.05);
+}
+
+.plan.popular:hover {
+  transform: scale(1.05) translateY(-6px);
+}
+
+.popular-badge {
+  display: inline-block;
+  padding: 3px 12px;
+  margin-bottom: 10px;
+  border-radius: 12px;
+  background-color: var(--white);
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.plan-price {
+  margin: 10px 0;
+  font-size: 46px;
+  font-weight: 700;
+}
+
+.plan-price .period {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.plan ul {
+  list-style: none;
+  margin: 20px 0 25px;
+  text-align: left;
+}
+
+.plan li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* FAQ accordion */
+.faq {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 12px;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq-icon {
+  font-size: 24px;
+  color: var(--purple);
+  transition: transform 0.3s ease;
+}
+
+/* The answer is hidden by giving it 0 height */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+  padding: 0 22px 18px;
+  color: var(--light-text);
+}
+
+/* JavaScript adds the "open" class when a question is clicked */
+.faq-item.open .faq-answer {
+  max-height: 200px;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);   /* + turns into x */
+}
+
+
+/* =========================================
+   Portfolio page
+   ========================================= */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-btn {
+  padding: 9px 20px;
+  border: 2px solid #d6cffa;
+  border-radius: 25px;
+  background-color: var(--white);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--light-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.filter-btn.active {
+  background-color: var(--purple);
+  border-color: var(--purple);
+  color: var(--white);
+}
+
+.result-text {
+  margin-bottom: 30px;
+  text-align: center;
+  color: var(--light-text);
+}
+
+/* Theme gallery - 4 columns */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.portfolio-item {
+  background-color: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 0.5s ease;   /* plays again each time an item is shown */
+}
+
+.portfolio-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Small 2 x 2 preview of the cards in each theme */
+.preview {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 20px;
+}
+
+.preview span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-radius: 12px;
+  background-color: var(--white);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  font-size: 30px;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .preview span {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.portfolio-item:hover .preview span:nth-child(even) {
+  transform: rotate(6deg) scale(1.08);
+}
+
+/* Background color for each category */
+.preview-food    { background-color: #ffe3ea; }
+.preview-nature  { background-color: #fff1c9; }
+.preview-animals { background-color: #d9f7ef; }
+.preview-sports  { background-color: #dcecff; }
+
+.portfolio-info {
+  padding: 18px 20px 22px;
+}
+
+.portfolio-info h3 {
+  margin-bottom: 5px;
+}
+
+.portfolio-info p {
+  margin-bottom: 12px;
+  color: var(--light-text);
+  font-size: 14px;
+}
+
+.category-label {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 12px;
+  background-color: #f1ebff;
+  color: var(--purple);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Numbers strip - Flexbox */
+.stats {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.stat-label {
+  color: var(--light-text);
+}
+
+
+/* =========================================
+   Contact page
+   ========================================= */
+
+/* Two columns: info on the left, form on the right */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 20px;
+  background-color: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateX(6px);
+}
+
+.info-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background-color: #f1ebff;
+  font-size: 22px;
+}
+
+.info-card h3 {
+  font-size: 16px;
+}
+
+.info-card p {
+  color: var(--light-text);
+  font-size: 15px;
+}
+
+.contact-form-box {
+  padding: 35px;
+  background-color: var(--white);
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.8s ease;
+}
+
+.contact-form-box h2 {
+  margin-bottom: 20px;
+}
+
+/* Name and Email side by side */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Red border and message when a field is wrong */
+.form-group .invalid {
+  border-color: var(--red);
+}
+
+.error {
+  display: block;
+  margin-top: 4px;
+  color: var(--red);
+  font-size: 13px;
+}
+
+.char-count {
+  display: block;
+  text-align: right;
+  color: var(--light-text);
+  font-size: 13px;
+}
+
+/* Hidden until the form is sent */
+.success-message {
+  display: none;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  background-color: #d9f7ef;
+  color: #137a65;
+  font-weight: 600;
+}
+
+.success-message.show {
+  display: block;
+  animation: slideUp 0.5s ease;
+}
+
+.contact-form-box .btn {
+  width: 100%;
 }
 
 
@@ -698,11 +1297,175 @@ footer {
   }
 }
 
+@keyframes pop {
+  50% {
+    transform: scale(1.12);
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
     transform: translateY(30px);
+  }
+}
+
+
+/* =========================================
+   Responsive design (media queries)
+   ========================================= */
+
+/* Navigation (1050px and below):
+   the 8 links no longer fit in one row, so they are
+   hidden until the ☰ button is clicked */
+@media (max-width: 1050px) {
+  .navbar {
+    flex-wrap: wrap;
+    margin: 10px;
+    border-radius: 20px;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  /* JavaScript adds the "show" class */
+  .nav-links.show {
+    display: flex;
+  }
+}
+
+/* Tablets (900px and below) */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-cards {
+    margin-top: 30px;
+  }
+
+  .levels,
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid,
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plans {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .plan.popular,
+  .plan.popular:hover {
+    transform: none;
+  }
+
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .board-hard {
+    grid-template-columns: repeat(8, 55px);
+    grid-auto-rows: 55px;
+    gap: 6px;
+  }
+
+  .cta {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Phones (600px and below) */
+@media (max-width: 600px) {
+  .hero-text h1 {
+    font-size: 38px;
+  }
+
+  .page-header h1,
+  .game-header h1 {
+    font-size: 34px;
+  }
+
+  .section-title h2,
+  .cta h2 {
+    font-size: 28px;
+  }
+
+  .hero-cards .card {
+    width: 95px;
+    height: 125px;
+  }
+
+  .services-grid,
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .board-easy {
+    grid-template-columns: repeat(2, 130px);
+    grid-auto-rows: 130px;
+  }
+
+  .board-medium {
+    grid-template-columns: repeat(4, 70px);
+    grid-auto-rows: 70px;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .board-medium .card-front {
+    font-size: 32px;
+  }
+
+  .board-medium .card-back {
+    font-size: 28px;
+  }
+
+  .board-hard {
+    grid-template-columns: repeat(8, 36px);
+    grid-auto-rows: 36px;
+    gap: 4px;
+    padding: 10px;
+  }
+
+  .board-hard .card-front {
+    font-size: 20px;
+  }
+
+  .board-hard .card-back {
+    font-size: 15px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .login-box,
+  .contact-form-box,
+  .cta {
+    padding: 30px 20px;
   }
 }

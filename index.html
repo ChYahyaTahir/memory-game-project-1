@@ -16,11 +16,15 @@
   <!-- Navigation bar -->
   <nav class="navbar">
     <a href="index.html" class="logo">🃏 Memory<span>Match</span></a>
+    <button class="menu-btn" id="menu-btn">☰</button>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="easy.html" class="easy">Easy</a></li>
-      <li><span class="nav-disabled" title="Coming soon">Medium 🔒</span></li>
-      <li><span class="nav-disabled" title="Coming soon">Hard 🔒</span></li>
+      <li><a href="medium.html" class="medium">Medium</a></li>
+      <li><a href="hard.html" class="hard">Hard</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
       <li><a href="login.html" class="login-link">Login</a></li>
     </ul>
   </nav>
@@ -71,7 +75,7 @@
     <div class="section-title">
       <span class="tag">Choose your challenge</span>
       <h2>Three Levels of Fun</h2>
-      <p>Start with the Easy level. Medium and Hard are coming soon!</p>
+      <p>Start with the easy level and work your way up to the hardest one.</p>
     </div>
 
     <div class="levels">
@@ -83,22 +87,21 @@
         <span class="play-link">Play Easy →</span>
       </a>
 
-      <!-- Medium and Hard are not ready yet, so they are not links -->
-      <div class="level-box medium locked">
+      <a href="medium.html" class="level-box medium">
         <div class="level-icon">🔥</div>
         <h3>Medium</h3>
         <p class="level-size">4 × 4 grid · 8 pairs</p>
         <p>Sixteen cards with fruits, flowers and animals. A real challenge!</p>
-        <span class="coming-soon">🔒 Coming Soon</span>
-      </div>
+        <span class="play-link">Play Medium →</span>
+      </a>
 
-      <div class="level-box hard locked">
+      <a href="hard.html" class="level-box hard">
         <div class="level-icon">🏆</div>
         <h3>Hard</h3>
         <p class="level-size">8 × 8 grid · 32 pairs</p>
         <p>Sixty-four cards for memory masters. How good is your memory?</p>
-        <span class="coming-soon">🔒 Coming Soon</span>
-      </div>
+        <span class="play-link">Play Hard →</span>
+      </a>
     </div>
   </section>
 
@@ -140,8 +143,9 @@
   </section>
 
   <footer>
-    <p>© 2026 Memory Match · Made with HTML &amp; CSS</p>
+    <p>© 2026 Memory Match · Made with HTML, CSS &amp; JavaScript</p>
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>
